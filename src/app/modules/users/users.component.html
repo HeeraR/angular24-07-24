@@ -1,25 +1,25 @@
-<div class="container">
-  <h1>Registered Users</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Date of Birth</th>
-        <th>Gender</th>
-        <th>Interests</th>
-        <th>Experience</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.fullName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.dob }}</td>
-        <td>{{ user.gender }}</td>
-        <td>{{ user.interests }}</td>
-        <td>{{ user.experience }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h1>Registered Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Interests</th>
+      <th>Experience</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.dob }}</td>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.interests }}</td>
+      <td>{{ user.experience }}</td>
+      <td><button (click)="deleteUser(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

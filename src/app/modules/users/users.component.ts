@@ -16,4 +16,11 @@ export class UsersComponent implements OnInit {
       this.users = JSON.parse(usersFromStorage) as User[];
     }
   }
+
+  deleteUser(index: number): void {
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.users.splice(index, 1);
+      localStorage.setItem('users', JSON.stringify(this.users));
+    }
+}
 }

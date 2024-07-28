@@ -1,24 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Issue } from '../../issue.model';
+import { Component } from '@angular/core';
 
+interface Issue {
+  title: string;
+  description: string;
+  status: string;
+}
 
 @Component({
   selector: 'app-issues',
   templateUrl: './issues.component.html',
   styleUrls: ['./issues.component.css']
 })
-export class IssuesComponent implements OnInit {
+export class IssuesComponent {
+  issue: Issue = {
+    title: '',
+    description: '',
+    status: 'open'
+  };
+
   issues: Issue[] = [];
 
-  ngOnInit(): void {
-    const issuesFromStorage = localStorage.getItem('issues');
-    if (issuesFromStorage) {
-      this.issues = JSON.parse(issuesFromStorage) as Issue[];
+  addIssue() {
+    if (this.issue.title && this.issue.description && this.issue.status) {
+      this.issues.push({ ...this.issue });
+      this.resetForm();
+    } else {
+      alert('Please fill in all fields.');
     }
   }
 
-  addIssue(newIssue: Issue): void {
-    this.issues.push(newIssue);
-    localStorage.setItem('issues', JSON.stringify(this.issues));
+  resetForm() {
+    this.issue = {
+      title: '',
+      description: '',
+      status: 'open'
+    };
   }
 }

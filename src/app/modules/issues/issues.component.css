@@ -1,21 +1,31 @@
-.container {
-  margin: 20px;
+.issue-form {
+  margin-bottom: 20px;
 }
 
-table {
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #0d47a1;
+}
+
+input, textarea, select {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th, table td {
   padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  text-align: left;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-table th {
-  background-color: #f0f0f0;
+input:focus, textarea:focus, select:focus {
+  border-color: #64b5f6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
 }
 
 button {
@@ -23,11 +33,25 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #1565c0;
+}
+
+.issue-list {
+  margin-top: 20px;
+}
+
+.issue-list div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.issue-list h3 {
+  margin: 0;
+  color: #0d47a1;
 }

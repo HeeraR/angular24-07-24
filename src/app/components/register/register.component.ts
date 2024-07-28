@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../user.model';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,14 +17,12 @@ export class RegisterComponent implements OnInit {
     experience: 0
   };
   users: User[] = [];
-  filteredUsers: User[] = [];
 
   ngOnInit(): void {
     const usersFromStorage = localStorage.getItem('users');
     if (usersFromStorage) {
       this.users = JSON.parse(usersFromStorage) as User[];
     }
-    this.filteredUsers = [...this.users];
   }
 
   onSubmit(): void {
@@ -52,15 +49,8 @@ export class RegisterComponent implements OnInit {
 
     this.users.push({ ...this.user });
     localStorage.setItem('users', JSON.stringify(this.users));
-    this.filteredUsers = [...this.users];
     alert('Registration successful!');
     this.resetForm();
-  }
-
-  deleteUser(index: number): void {
-    this.users.splice(index, 1);
-    localStorage.setItem('users', JSON.stringify(this.users));
-    this.filteredUsers = [...this.users];
   }
 
   resetForm(): void {

@@ -1,10 +1,9 @@
-
 export interface User {
-    fullName: string;
-    email: string;
-    dob?: string;
-    gender?: string;
-    password: string;
-    interests?: string[];
-    experience: number;
-  }
+  fullName: string;
+  email: string;
+  password: string;
+  dob: string;
+  gender: string;
+  interests: string[];
+  experience: number;
+}

@@ -1,8 +1,13 @@
 .layout {
-    display: flex;
-  }
-  .content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main-content {
+  display: flex;
+  flex: 1;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+}

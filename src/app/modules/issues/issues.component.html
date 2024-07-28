@@ -1,2 +1,21 @@
-<h2>Issue List</h2>
-<p>List of issues will be displayed here.</p>
+<div class="container">
+  <h1>Issues</h1>
+  <!-- <button (click)="openIssueModel()">Add New Issue</button> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues">
+        <td>{{ issue.title }}</td>
+        <td>{{ issue.description }}</td>
+        <td>{{ issue.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

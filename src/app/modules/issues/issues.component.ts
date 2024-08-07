@@ -1,39 +1,25 @@
 import { Component } from '@angular/core';
 
-interface Issue {
-  title: string;
-  description: string;
-  status: string;
-}
-
 @Component({
   selector: 'app-issues',
   templateUrl: './issues.component.html',
   styleUrls: ['./issues.component.css']
 })
 export class IssuesComponent {
-  issue: Issue = {
+  newIssue = {
     title: '',
     description: '',
-    status: 'open'
+    status: ''
   };
 
-  issues: Issue[] = [];
+  issues: Array<{ title: string, description: string, status: string }> = [];
 
-  addIssue() {
-    if (this.issue.title && this.issue.description && this.issue.status) {
-      this.issues.push({ ...this.issue });
-      this.resetForm();
-    } else {
-      alert('Please fill in all fields.');
-    }
-  }
-
-  resetForm() {
-    this.issue = {
+  addIssue(): void {
+    this.issues.push({ ...this.newIssue });
+    this.newIssue = {
       title: '',
       description: '',
-      status: 'open'
+      status: ''
     };
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './users.service';
-
+import { User } from '../../user.model';
 
 @Component({
   selector: 'app-users',
@@ -13,14 +12,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     const usersFromStorage = localStorage.getItem('users');
     if (usersFromStorage) {
-      this.users = JSON.parse(usersFromStorage) as User[];
+      this.users = JSON.parse(usersFromStorage);
     }
   }
-
-  deleteUser(index: number): void {
-    if (confirm('Are you sure you want to delete this user?')) {
-      this.users.splice(index, 1);
-      localStorage.setItem('users', JSON.stringify(this.users));
-    }
-}
 }

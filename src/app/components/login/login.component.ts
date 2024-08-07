@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../user.model';
-
 
 @Component({
   selector: 'app-login',
@@ -13,23 +11,19 @@ export class LoginComponent {
     email: '',
     password: ''
   };
+  loginSuccess: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  onLogin(): void {
-    const usersFromStorage = localStorage.getItem('users');
-    if (usersFromStorage) {
-      const users: User[] = JSON.parse(usersFromStorage) as User[];
-      const user = users.find(user => user.email === this.loginData.email && user.password === this.loginData.password);
-      if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user)); 
-        alert('Login successful!');
-        this.router.navigate(['/users']);  
-      } else {
-        alert('Invalid email or password.');
-      }
+  onSubmit(): void {
+    console.log('Login data:', this.loginData);
+    if (this.loginData.email === 'test@example.com' && this.loginData.password === 'password') {
+      this.loginSuccess = true;
+      setTimeout(() => {
+        this.router.navigate(['/user-list']);
+      }, 2000); // Navigate to user list after 2 seconds
     } else {
-      alert('No users found. Please register first.');
+      this.loginSuccess = false;
     }
   }
 }

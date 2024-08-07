@@ -1,4 +1,3 @@
-// user.service.ts
 import { Injectable } from '@angular/core';
 
 export interface User {

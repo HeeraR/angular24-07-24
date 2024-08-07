@@ -1,47 +1,22 @@
-<div>
-  <form (ngSubmit)="onSubmit()" ngForm autocomplete="off">
-    <h1>Register</h1>
-    <div class="form-group">
-      <label for="fullName">Full Name<span class="required">*</span></label>
-      <input type="text" name="fullName" id="fullName" [(ngModel)]="user.fullName" required autocomplete="off">
+<div class="register-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="registrationData.username" name="username" autocomplete="off">
     </div>
-    <div class="form-group">
-      <label for="email">Email<span class="required">*</span></label>
-      <input type="email" name="email" id="email" [(ngModel)]="user.email" required autocomplete="off">
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="registrationData.email" name="email" autocomplete="off" required>
     </div>
-    <div class="form-group">
-      <label for="dob">Date of Birth<span class="required">*</span></label>
-      <input type="date" name="dob" id="dob" [(ngModel)]="user.dob" required autocomplete="off">
-    </div>
-    <div class="form-group">
-      <label for="gender">Gender<span class="required">*</span></label>
-      <select name="gender" id="gender" [(ngModel)]="user.gender" required autocomplete="off">
-        <option value="" disabled selected>Select your gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="interests">Interests<span class="required">*</span></label>
-      <select name="interests" id="interests" [(ngModel)]="user.interests" required autocomplete="off">
-        <option value="" disabled selected>Select your interests</option>
-        <option value="Technology">Technology</option>
-        <option value="Science">Science</option>
-        <option value="Arts">Arts</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="password">Password<span class="required">*</span></label>
-      <input type="password" name="password" id="password" [(ngModel)]="user.password" required autocomplete="off">
-    </div>
-    <div class="form-group">
-      <label for="experience">Years of Experience<span class="required">*</span></label>
-      <input type="number" name="experience" id="experience" [(ngModel)]="user.experience" required min="0" max="20">
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="registrationData.password" name="password" required>
     </div>
     <button type="submit">Register</button>
   </form>
-
-  <div class="navigation">
-    <a routerLink="/login">Login</a>
-  </div>
+  <p *ngIf="registrationSuccess" style="color: green;">Registration Successful</p>
+  <p>
+    Already have an account? <a routerLink="/login">Login</a>
+  </p>
 </div>
